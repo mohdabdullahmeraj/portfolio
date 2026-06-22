@@ -1,0 +1,193 @@
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--section-padding);
+  overflow: hidden;
+}
+
+/* Tagline */
+.tagline {
+  position: absolute;
+  top: var(--section-padding);
+  left: var(--section-padding);
+  z-index: 2;
+  font-size: clamp(0.7rem, 1vw, 1.1rem);
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  max-width: 250px;
+  letter-spacing: 0.02em;
+  opacity: 0;
+}
+
+/* Name */
+.nameContainer {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: baseline;
+  gap: clamp(1.5rem, 4vw, 5rem);
+  padding-bottom: clamp(1rem, 2vw, 2rem);
+  flex-wrap: nowrap;
+}
+
+.firstName {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: clamp(3rem, 9.5vw, 14rem);
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+  color: var(--color-text-primary);
+  white-space: nowrap;
+}
+
+.lastName {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(3rem, 9.5vw, 14rem);
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+  color: var(--color-text-primary);
+  white-space: nowrap;
+}
+
+.space {
+  width: 0.3em;
+}
+
+/* Footer */
+.footer {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: clamp(0.75rem, 1.5vw, 1.5rem);
+  border-top: 1px solid var(--color-border);
+  opacity: 0;
+}
+
+.footerLeft {
+  flex: 1;
+}
+
+.version {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+  letter-spacing: 0.05em;
+}
+
+.footerCenter {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footerRight {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  gap: clamp(1rem, 2vw, 2rem);
+}
+
+.footerLink {
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  color: var(--color-text-secondary);
+  transition: color 0.3s var(--ease-out-quart);
+  text-transform: uppercase;
+}
+
+.footerLink:hover {
+  color: var(--color-text-primary);
+}
+
+.footerDivider {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+/* =========================================
+   Portal & Scroll Animation Styles
+   ========================================= */
+
+.heroWrapper {
+  position: relative;
+  width: 100%;
+  /* We don't set a height here; ScrollTrigger pinning handles the scroll duration */
+}
+
+/* 
+   The portal content sits BETWEEN the background (aurora) and the text.
+   It uses a clip-path ellipse that starts at 0 size and grows.
+*/
+.portalContent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Below the name (z-index: 2), above the aurora background (z-index: 0) */
+  pointer-events: none;
+  
+  /* Initial state: closed */
+  --portal-size: 0;
+  --d-x: 50%;
+  --d-y: 50%;
+  
+  /* The mask is a standing oval matching the 'd' counter, with soft edges */
+  -webkit-mask-image: radial-gradient(
+    ellipse calc(var(--portal-size) * 0.8vw) calc(var(--portal-size) * 1.2vw) at var(--d-x) var(--d-y),
+    black 70%,
+    transparent 100%
+  );
+  mask-image: radial-gradient(
+    ellipse calc(var(--portal-size) * 0.8vw) calc(var(--portal-size) * 1.2vw) at var(--d-x) var(--d-y),
+    black 70%,
+    transparent 100%
+  );
+}
+
+.portalInner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-bg); /* Dark background for the statement section */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Corner + Markers */
+.cornerMarker {
+  position: absolute;
+  font-family: var(--font-sans);
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: var(--color-text-secondary);
+  line-height: 1;
+}
+
+.cornerMarker[data-pos="tl"] { top: 2rem; left: 2rem; }
+.cornerMarker[data-pos="tr"] { top: 2rem; right: 2rem; }
+.cornerMarker[data-pos="bl"] { bottom: 2rem; left: 2rem; }
+.cornerMarker[data-pos="br"] { bottom: 2rem; right: 2rem; }
+
+/* Statement Text inside Portal */
+.statementTextWrap {
+  text-align: center;
+  max-width: 80vw;
+}
+
+.statementText {
+  font-size: clamp(2rem, 5vw, 6rem);
+  line-height: 1.1;
+  color: var(--color-text-primary);
+  letter-spacing: -0.02em;
+}
