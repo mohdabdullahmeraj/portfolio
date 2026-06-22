@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import AuroraBackground from "./AuroraBackground";
 import styles from "./Hero.module.css";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -17,6 +18,7 @@ export default function Hero() {
   const lastNameRef = useRef<HTMLDivElement>(null);
   const dLetterRef = useRef<HTMLSpanElement>(null);
   const portalContentRef = useRef<HTMLDivElement>(null);
+  const statementTextRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -78,8 +80,9 @@ export default function Hero() {
     const portal = portalContentRef.current;
     const tagline = taglineRef.current;
     const footer = footerRef.current;
+    const statementText = statementTextRef.current;
 
-    if (!hero || !name || !dLetter || !portal || !tagline || !footer || !wrapperRef.current) return;
+    if (!hero || !name || !dLetter || !portal || !tagline || !footer || !statementText || !wrapperRef.current) return;
 
     // ---- Measure positions ----
     const heroRect = hero.getBoundingClientRect();
@@ -149,6 +152,14 @@ export default function Hero() {
       { "--portal-size": 160, duration: 0.5, ease: "power2.in" },
       0.25
     );
+    
+    // Fade and scale in the statement text as the portal opens
+    scrollTl.fromTo(
+      statementText,
+      { opacity: 0, scale: 0.9 },
+      { opacity: 1, scale: 1, duration: 0.3, ease: "power2.out" },
+      0.45
+    );
 
     // Fade out name text as it gets very large
     scrollTl.to(
@@ -180,6 +191,8 @@ export default function Hero() {
   return (
     <div ref={wrapperRef} className={styles.heroWrapper}>
       <div ref={heroRef} className={styles.hero} id="hero">
+        <AuroraBackground />
+        
         {/* Tagline — top left */}
         <p ref={taglineRef} className={styles.tagline}>
           Crafting digital experiences,{" "}
@@ -203,7 +216,7 @@ export default function Hero() {
             <span className={styles.cornerMarker} data-pos="br">
               +
             </span>
-            <div className={styles.statementTextWrap}>
+            <div ref={statementTextRef} className={styles.statementTextWrap}>
               <p className={styles.statementText}>
                 <span className="font-serif">I engineer systems.</span>
                 <br />
