@@ -1,0 +1,131 @@
+.aboutWrapper {
+  position: relative;
+  width: 100%;
+  background: var(--color-bg);
+  /* The dark background of the page */
+}
+
+/* Gradient overlay to soften the hard cut between Hero and About */
+.aboutWrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 25vh; /* Adjust how far down the fade goes */
+  background: linear-gradient(to bottom, var(--color-bg) 0%, transparent 100%);
+  z-index: 10; /* Make sure it's above the image */
+  pointer-events: none;
+}
+
+.aboutInner {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: var(--section-padding);
+}
+
+.imageContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100vh; /* Fill full screen height */
+  width: 65vw; /* Increased width for a wider presence */
+  min-width: 600px;
+  z-index: 1;
+  /* Feather the left and right edges into transparency (softer fade) */
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 30%, black 70%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 30%, black 70%, transparent 100%);
+}
+
+.image {
+  height: 100%;
+  width: 100%;
+  display: block;
+  object-fit: cover; /* Crop the left and right sides to fill the container */
+  filter: blur(30px); /* Heavy initial blur */
+  transform: scale(1.1); /* Scaled slightly to hide blur edge artifacts */
+  opacity: 0.8; /* Slightly dim initially */
+  border-radius: 0;
+}
+
+.leftText {
+  position: absolute;
+  top: 40%;
+  left: 5vw;
+  transform: translateY(-50%);
+  width: 35vw;
+  max-width: 500px;
+  font-family: var(--font-sans);
+  font-size: clamp(2rem, 4vw, 4rem);
+  font-weight: 400;
+  color: var(--color-text-primary);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  z-index: 2;
+  /* Starts fully sharp and visible */
+}
+
+.serifItalic {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.rightText {
+  position: absolute;
+  top: 55%;
+  right: 3vw;
+  transform: translateY(-50%);
+  width: 30vw;
+  max-width: 430px;
+  font-family: var(--font-sans);
+  font-size: clamp(1rem, 1.5vw, 2rem);
+  color: var(--color-text-primary);
+  line-height: 1.5;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25em 0.3em; /* Vertical/Horizontal spacing between words */
+}
+
+.word {
+  opacity: 0;
+  filter: blur(10px);
+  display: inline-block;
+  will-change: transform, opacity, filter;
+}
+
+.readMoreLink {
+  margin-top: 2rem;
+  font-family: var(--font-sans);
+  font-size: clamp(0.8rem, 1vw, 1.1rem);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+.readMoreLink:hover {
+  color: var(--color-text-primary);
+}
+
+.readMoreLink::after {
+  content: "→";
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.readMoreLink:hover::after {
+  transform: translateX(8px);
+}
