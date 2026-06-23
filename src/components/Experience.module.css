@@ -1,0 +1,106 @@
+.experienceWrapper {
+  position: relative;
+  width: 100%;
+  height: 500vh; /* Plenty of scroll room for 5 items */
+  background-color: var(--color-bg);
+}
+
+.experienceInner {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* -------------------------------------
+   Background Year Typography
+   ------------------------------------- */
+
+.bgYear {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-sans);
+  font-size: 35vw; /* Massive typography bleeding off screen */
+  font-weight: 800;
+  color: var(--color-text-primary);
+  opacity: 0.03; /* Extremely subtle */
+  line-height: 0.8;
+  pointer-events: none;
+  z-index: 0;
+  will-change: opacity;
+}
+
+/* -------------------------------------
+   Foreground Roles
+   ------------------------------------- */
+
+.rolesContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.roleCard {
+  position: absolute;
+  width: 95%;
+  max-width: 1200px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* GSAP will control these */
+  opacity: 0;
+  transform: translateY(100px);
+  will-change: opacity, transform;
+}
+
+.roleDate {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.roleTitle {
+  font-family: var(--font-sans);
+  font-size: clamp(1.5rem, 3vw, 3.5rem);
+  font-weight: 500;
+  color: var(--color-text-primary);
+  line-height: 1.1;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -0.02em;
+  white-space: nowrap; /* Forces text to stay on one line */
+}
+
+.roleCompany {
+  font-family: var(--font-sans);
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  font-weight: 400;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 2rem;
+}
+
+.roleDescription {
+  font-family: var(--font-sans);
+  font-size: clamp(1rem, 1.2vw, 1.2rem);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  opacity: 0.8;
+  max-width: 90%;
+  margin: 0 auto;
+}
