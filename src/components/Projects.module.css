@@ -1,0 +1,125 @@
+.projectsWrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  background-color: var(--color-bg);
+  /* Do not use overflow: hidden here or position: sticky won't work */
+}
+
+.leftColumn {
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+  padding: 40vh 5vw 40vh 10vw; /* Padding top/bottom allows the first/last items to reach the center of the screen */
+}
+
+.rightColumn {
+  width: 45%;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--section-padding);
+}
+
+/* -------------------------------------
+   Left Column Items
+   ------------------------------------- */
+
+.projectItem {
+  display: block;
+  padding: 10vh 0; /* Increased padding to give enough scroll distance for each item */
+  border-bottom: 1px solid var(--color-border-light);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.projectItem:first-child {
+  border-top: 1px solid var(--color-border-light);
+}
+
+.projectTitle {
+  font-family: var(--font-sans);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 400;
+  color: var(--color-text-primary);
+  opacity: 0.2; /* Inactive state */
+  transition: opacity 0.4s ease, color 0.4s ease;
+  will-change: opacity;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.projectTitle.active {
+  opacity: 1;
+}
+
+/* -------------------------------------
+   Right Column Gallery
+   ------------------------------------- */
+
+.galleryContainer {
+  position: relative;
+  width: 80%;
+  max-width: 650px;
+  aspect-ratio: 16 / 10;
+  /* overflow: hidden removed so metadata can sit outside */
+}
+
+.imageWrapper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.galleryItem {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.galleryItem.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.projectImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: scale(1.1); /* Start zoomed in */
+}
+
+.galleryItem.active .projectImage {
+  transform: scale(1); /* Zoom out smoothly when active */
+}
+
+/* Metadata Labels overlaid above the image container */
+.galleryMetadata {
+  position: absolute;
+  top: -2rem;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+  z-index: 2;
+}
+
+.projectLabel {
+  /* Using standard layout instead of absolute overlay */
+}
