@@ -107,14 +107,15 @@
 
 @media (max-width: 900px) {
   .bgYear {
-    font-size: 60vw;
+    font-size: 35vw;
   }
   .roleTitle {
     white-space: normal;
     font-size: clamp(2rem, 8vw, 3rem);
+    max-width: 80vw;
   }
   .roleDescription {
-    max-width: 100%;
+    max-width: 85vw;
     font-size: 1rem;
   }
 }

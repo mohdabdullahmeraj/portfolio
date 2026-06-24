@@ -72,9 +72,7 @@ export default function ContactPage() {
         </div>
       </div>
 
-      <a href="mailto:mohdabdullahmeraj1705@gmail.com" className={styles.emailLink}>
-        mohdabdullahmeraj1705@gmail.com
-      </a>
+      
     </main>
   );
 }
