@@ -7,7 +7,7 @@ import TransitionLink from "./TransitionLink";
 import styles from "./Footer.module.css";
 
 export default function Footer() {
-  const wrapperRef = useRef<HTMLFooterElement>(null);
+  const wrapperRef = useRef<HTMLElement>(null);
   const topRef = useRef<HTMLDivElement>(null);
   const nameRefs = useRef<(HTMLHeadingElement | null)[]>([]);
 

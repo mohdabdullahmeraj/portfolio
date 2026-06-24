@@ -11,7 +11,8 @@ interface TransitionLinkProps extends Omit<React.AnchorHTMLAttributes<HTMLAnchor
   isBack?: boolean;
 }
 
-export default function TransitionLink({ children, href, className, target, rel, onClick, isBack, ...props }: TransitionLinkProps) {
+const TransitionLink = React.forwardRef<HTMLAnchorElement, TransitionLinkProps>(
+  ({ children, href, className, target, rel, onClick, isBack, ...props }, ref) => {
   const router = useRouter();
 
   const handleTransition = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -72,8 +73,11 @@ export default function TransitionLink({ children, href, className, target, rel,
   };
 
   return (
-    <Link href={href} className={className} target={target} rel={rel} onClick={handleTransition} {...props}>
+    <Link ref={ref} href={href} className={className} target={target} rel={rel} onClick={handleTransition} {...props}>
       {children}
     </Link>
   );
-}
+});
+
+TransitionLink.displayName = "TransitionLink";
+export default TransitionLink;
