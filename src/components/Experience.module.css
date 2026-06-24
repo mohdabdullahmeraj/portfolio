@@ -104,3 +104,17 @@
   max-width: 90%;
   margin: 0 auto;
 }
+
+@media (max-width: 900px) {
+  .bgYear {
+    font-size: 60vw;
+  }
+  .roleTitle {
+    white-space: normal;
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+  .roleDescription {
+    max-width: 100%;
+    font-size: 1rem;
+  }
+}

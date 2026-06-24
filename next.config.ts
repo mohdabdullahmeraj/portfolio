@@ -2,6 +2,8 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
+  // @ts-expect-error - Next.js 16 specific property
+  allowedDevOrigins: ["192.168.1.39"],
 };
 
 export default nextConfig;

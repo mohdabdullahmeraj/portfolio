@@ -123,3 +123,23 @@
 .projectLabel {
   /* Using standard layout instead of absolute overlay */
 }
+
+@media (max-width: 900px) {
+  .projectsWrapper {
+    flex-direction: column;
+  }
+  .leftColumn {
+    width: 100%;
+    padding: 10vh 5vw;
+  }
+  .rightColumn {
+    display: none; /* Hide gallery completely on mobile */
+  }
+  .projectItem {
+    padding: 6vh 0;
+  }
+  .projectTitle {
+    font-size: clamp(2.5rem, 10vw, 4rem);
+    opacity: 1 !important; /* Titles are always fully visible on mobile */
+  }
+}

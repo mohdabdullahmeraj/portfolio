@@ -130,3 +130,38 @@
 .readMoreLink:hover::after {
   transform: translateX(8px);
 }
+
+@media (max-width: 900px) {
+  .aboutWrapper::before {
+    height: 15vh;
+  }
+  .imageContainer {
+    width: 100vw;
+    height: 100vh;
+    min-width: unset;
+    /* Mask the bottom so it fades into the black background for the text to rest on */
+    -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+  }
+  .leftText {
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80vw;
+    max-width: none;
+    text-align: center;
+    font-size: clamp(2.5rem, 8vw, 3rem);
+  }
+  .rightText {
+    top: auto;
+    bottom: 15vh;
+    left: 5vw;
+    right: 5vw;
+    width: 90vw;
+    max-width: none;
+    transform: translateY(0);
+  }
+  .readMoreLink {
+    margin-top: 1rem;
+  }
+}

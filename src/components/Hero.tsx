@@ -194,14 +194,17 @@ export default function Hero() {
   function splitIntoLetters(text: string, dIndex?: number) {
     return text.split("").map((char, i) => {
       const isDTarget = dIndex !== undefined && i === dIndex;
+      if (char === " ") {
+        return <span key={i} className={styles.mobileBreak}></span>;
+      }
       return (
         <span
           key={i}
           ref={isDTarget ? dLetterRef : undefined}
-          className={`letter inline-block ${char === " " ? styles.space : ""}`}
+          className="letter inline-block"
           style={{ display: "inline-block" }}
         >
-          {char === " " ? "\u00A0" : char}
+          {char}
         </span>
       );
     });

@@ -143,3 +143,30 @@
   opacity: 1;
   color: var(--color-text-primary);
 }
+
+@media (max-width: 900px) {
+  .skillsWrapper {
+    flex-direction: column;
+  }
+  .leftColumn {
+    width: 100%;
+    height: auto;
+    position: relative;
+    padding: 10vh 5vw 5vh 5vw;
+  }
+  .rightColumn {
+    width: 100%;
+    padding: 5vh 5vw 10vh 5vw;
+  }
+  .bioText {
+    font-size: clamp(2rem, 8vw, 3rem);
+    margin-bottom: 2rem;
+    max-width: 100%;
+  }
+  .accordionHeader {
+    padding: 2rem 0;
+  }
+  .categoryTitle {
+    font-size: clamp(2rem, 8vw, 2.5rem);
+  }
+}

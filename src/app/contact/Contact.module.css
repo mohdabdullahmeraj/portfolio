@@ -197,7 +197,7 @@ a.gridItem:hover {
   opacity: 0.6;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .infoBox {
     padding: 1.5rem;
     margin-bottom: 1.5rem;
