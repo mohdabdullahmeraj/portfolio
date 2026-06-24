@@ -6,8 +6,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import AuroraBackground from "./AuroraBackground";
 import styles from "./Hero.module.css";
 
-gsap.registerPlugin(ScrollTrigger);
-
 export default function Hero() {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
@@ -64,7 +62,9 @@ export default function Hero() {
         // Double rAF to ensure layout is stable after entrance
         requestAnimationFrame(() => {
           requestAnimationFrame(() => {
-            setupScrollTransition();
+            ctx.add(() => {
+              setupScrollTransition();
+            });
           });
         });
       });

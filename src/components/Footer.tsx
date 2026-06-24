@@ -6,8 +6,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
 import styles from "./Footer.module.css";
 
-gsap.registerPlugin(ScrollTrigger);
-
 export default function Footer() {
   const wrapperRef = useRef<HTMLFooterElement>(null);
   const topRef = useRef<HTMLDivElement>(null);

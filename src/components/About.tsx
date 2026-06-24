@@ -6,8 +6,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
 import styles from "./About.module.css";
 
-gsap.registerPlugin(ScrollTrigger);
-
 export default function About() {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const innerRef = useRef<HTMLDivElement>(null);

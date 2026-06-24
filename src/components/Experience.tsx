@@ -5,8 +5,6 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import styles from "./Experience.module.css";
 
-gsap.registerPlugin(ScrollTrigger);
-
 const experiences = [
   {
     id: "popin",

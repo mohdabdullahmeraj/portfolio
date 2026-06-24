@@ -6,8 +6,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
 import styles from "./Projects.module.css";
 
-gsap.registerPlugin(ScrollTrigger);
-
 // Easy-to-edit project data
 const projects = [
   {

@@ -1,6 +1,7 @@
 .aboutWrapper {
   position: relative;
   width: 100%;
+  height: 400vh;
   background: var(--color-bg);
   /* The dark background of the page */
 }
