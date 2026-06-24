@@ -19,6 +19,12 @@ export default function Hero() {
   const statementTextRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // scrollTlRef holds the ScrollTrigger created asynchronously inside
+    // the rAF callback — ctx.revert() alone cannot catch it since it's
+    // created after the context scope closes. We kill it manually.
+    let scrollTlRef: ReturnType<typeof gsap.timeline> | null = null;
+    let rafId1: number, rafId2: number;
+
     const ctx = gsap.context(() => {
       // ====== ENTRANCE ANIMATION ======
       const entranceTl = gsap.timeline({ defaults: { ease: "power4.out" } });
@@ -57,23 +63,33 @@ export default function Hero() {
         1.0
       );
 
-      // ====== SCROLL TRANSITION (after entrance settles) ======
+      // ====== SCROLL TRANSITION ======
+      // Fired async after entrance — cannot be inside ctx scope.
+      // We store the returned timeline and kill it in cleanup.
       entranceTl.then(() => {
-        // Double rAF to ensure layout is stable after entrance
-        requestAnimationFrame(() => {
-          requestAnimationFrame(() => {
-            ctx.add(() => {
-              setupScrollTransition();
-            });
+        rafId1 = requestAnimationFrame(() => {
+          rafId2 = requestAnimationFrame(() => {
+            if (!wrapperRef.current) return; // unmounted guard
+            scrollTlRef = setupScrollTransition();
           });
         });
       });
     }, wrapperRef);
 
-    return () => ctx.revert();
+    return () => {
+      cancelAnimationFrame(rafId1);
+      cancelAnimationFrame(rafId2);
+      // Kill the async scroll timeline + its ScrollTrigger
+      if (scrollTlRef) {
+        scrollTlRef.scrollTrigger?.kill();
+        scrollTlRef.kill();
+        scrollTlRef = null;
+      }
+      ctx.revert();
+    };
   }, []);
 
-  function setupScrollTransition() {
+  function setupScrollTransition(): ReturnType<typeof gsap.timeline> | null {
     const hero = heroRef.current;
     const name = nameContainerRef.current;
     const dLetter = dLetterRef.current;
@@ -82,7 +98,7 @@ export default function Hero() {
     const footer = footerRef.current;
     const statementText = statementTextRef.current;
 
-    if (!hero || !name || !dLetter || !portal || !tagline || !footer || !statementText || !wrapperRef.current) return;
+    if (!hero || !name || !dLetter || !portal || !tagline || !footer || !statementText || !wrapperRef.current) return null;
 
     // ---- Measure positions ----
     const heroRect = hero.getBoundingClientRect();
@@ -170,6 +186,8 @@ export default function Hero() {
 
     // Phase 3 (0.75 → 1.0): Hold on statement — user reads it
     // (nothing animates, pin stays, statement is fully visible)
+
+    return scrollTl;
   }
 
   function splitIntoLetters(text: string, dIndex?: number) {

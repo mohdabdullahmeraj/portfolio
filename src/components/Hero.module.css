@@ -118,7 +118,13 @@
 .heroWrapper {
   position: relative;
   width: 100%;
-  /* We don't set a height here; ScrollTrigger pinning handles the scroll duration */
+  /*
+   * CRITICAL: must be 100vh (pinned panel) + scroll end offset.
+   * Hero uses end: +=350%, so total = 100vh + 350vh = 450vh.
+   * Without this, the wrapper is 0-height on reload and ScrollTrigger
+   * pins the hero at scroll:0 — right on top of the About section.
+   */
+  height: 450vh;
 }
 
 /* 
