@@ -260,26 +260,26 @@ export default function Hero() {
             <span className={styles.version}>→V1.0</span>
           </div>
           <div className={styles.footerCenter}>
-            <a href="https://github.com" className={styles.footerLink}>
+            <a href="https://github.com/mohdabdullahmeraj/" target="_blank" rel="noopener noreferrer" className={styles.footerLink}>
               GITHUB
             </a>
             <span className={styles.footerDivider}>/</span>
-            <a href="https://linkedin.com" className={styles.footerLink}>
+            <a href="https://www.linkedin.com/in/mohdabdullahmeraj/" target="_blank" rel="noopener noreferrer" className={styles.footerLink}>
               LINKEDIN
             </a>
             <span className={styles.footerDivider}>/</span>
-            <a href="https://behance.com" className={styles.footerLink}>
+            <a href="https://www.behance.net/gallery/234016403/Portfolio" target="_blank" rel="noopener noreferrer" className={styles.footerLink}>
               BEHANCE
             </a>
           </div>
           <div className={styles.footerRight}>
-            <a href="/work" className={styles.footerLink}>
+            <a href="#projects" className={styles.footerLink}>
               WORK
             </a>
-            <a href="/info" className={styles.footerLink}>
+            <a href="#about" className={styles.footerLink}>
               INFO
             </a>
-            <a href="/contact" className={styles.footerLink}>
+            <a href="#contact" className={styles.footerLink}>
               CONTACT
             </a>
           </div>

@@ -72,13 +72,13 @@ export default function Footer() {
           </div>
 
           <div className={styles.footerCol}>
-            <a href="#" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/mohdabdullahmeraj/" target="_blank" rel="noopener noreferrer">
               {splitText("GITHUB")}
             </a>
-            <a href="#" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.linkedin.com/in/mohdabdullahmeraj/" target="_blank" rel="noopener noreferrer">
               {splitText("LINKEDIN")}
             </a>
-            <a href="#" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.behance.net/gallery/234016403/Portfolio" target="_blank" rel="noopener noreferrer">
               {splitText("BEHANCE")}
             </a>
           </div>
