@@ -1,0 +1,218 @@
+.contactWrapper {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  width: 100%;
+  color: var(--color-text-primary);
+  z-index: 1;
+  padding: 2rem 4vw;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  z-index: 2;
+}
+
+.logoText {
+  font-family: var(--font-sans);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.backLink {
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.backLink:hover {
+  opacity: 0.6;
+}
+
+/* Layout */
+.mainContent {
+  display: flex;
+  gap: clamp(2rem, 5vw, 5rem);
+  flex: 1;
+  flex-wrap: wrap;
+  z-index: 2;
+  overflow: hidden;
+}
+
+/* Left Column */
+.leftColumn {
+  flex: 0.8;
+  min-width: 250px;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.infoBox {
+  background: rgba(20, 20, 20, 0.4);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.boxTitle {
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.boxText {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.metaSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.metaRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--color-border-light);
+  padding: 0.75rem 0;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-secondary);
+}
+
+.metaRow span:last-child {
+  color: var(--color-text-primary);
+  font-weight: 500;
+  text-align: right;
+  max-width: 70%;
+  text-transform: none;
+}
+
+.emailLink {
+  position: absolute;
+  bottom: 2rem;
+  left: 4vw;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  text-decoration: none;
+  z-index: 2;
+  transition: opacity 0.3s ease;
+}
+
+.emailLink:hover {
+  opacity: 0.6;
+}
+
+/* Right Column */
+.rightColumn {
+  flex: 2;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sectionLabel {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.mainHeading {
+  font-family: var(--font-sans);
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 400;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.04em;
+}
+
+.primaryBio {
+  font-size: clamp(0.95rem, 1.3vw, 1.15rem);
+  line-height: 1.6;
+  color: var(--color-text-primary);
+  max-width: 800px;
+  margin-bottom: 1.5rem;
+}
+
+.secondaryBio {
+  font-size: clamp(0.85rem, 1.1vw, 0.95rem);
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  max-width: 800px;
+  margin-bottom: 2rem;
+}
+
+.bottomGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  border-top: 1px solid var(--color-border-light);
+  padding-top: 1.5rem;
+}
+
+.gridCol {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.gridTitle {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.gridItem {
+  font-size: 0.85rem;
+  color: var(--color-text-primary);
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+a.gridItem:hover {
+  opacity: 0.6;
+}
+
+@media (max-width: 768px) {
+  .infoBox {
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .bottomGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .mainContent {
+    flex-direction: column;
+    overflow-y: auto;
+  }
+  .contactWrapper {
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
+  }
+}

@@ -1,0 +1,207 @@
+.infoWrapper {
+  position: relative;
+  height: 100vh; /* Strictly 100vh */
+  overflow: hidden; /* No scrolling allowed */
+  width: 100%;
+  color: var(--color-text-primary);
+  z-index: 1;
+  padding: 2rem 4vw; /* Reduced padding */
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem; /* Reduced margin */
+  z-index: 2;
+}
+
+.logoText {
+  font-family: var(--font-sans);
+  font-size: clamp(2.5rem, 6vw, 4.5rem); /* Scaled down */
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.backLink {
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.backLink:hover {
+  opacity: 0.6;
+}
+
+.mainContent {
+  display: flex;
+  gap: clamp(2rem, 5vw, 5rem); /* Reduced gap */
+  flex: 1;
+  flex-wrap: wrap;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.leftColumn {
+  flex: 0.8; /* Takes slightly less space */
+  min-width: 250px;
+  max-width: 320px; /* Reduced max width */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Flow from top to bottom naturally */
+}
+
+.imageWrapper {
+  position: relative;
+  aspect-ratio: 4/5;
+  width: 100%;
+  margin-bottom: 1.5rem; /* Reduced margin */
+}
+
+.profileImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Optional: soft blend mode to integrate with background if desired */
+  /* mix-blend-mode: luminosity; */ 
+}
+
+.imageMarker {
+  position: absolute;
+  font-family: var(--font-sans);
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1;
+}
+
+.imageMarker[data-pos="tl"] { top: 0.5rem; left: 0.5rem; }
+.imageMarker[data-pos="tr"] { top: 0.5rem; right: 0.5rem; }
+.imageMarker[data-pos="bl"] { bottom: 0.5rem; left: 0.5rem; }
+.imageMarker[data-pos="br"] { bottom: 0.5rem; right: 0.5rem; }
+
+.metaSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.metaRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--color-border-light);
+  padding: 0.75rem 0; /* Reduced padding */
+  font-size: 0.7rem; /* Slightly smaller */
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-secondary);
+}
+
+.metaRow span:last-child {
+  color: var(--color-text-primary);
+  font-weight: 500;
+  text-align: right;
+  max-width: 60%;
+  text-transform: none;
+}
+
+.metaRow a {
+  color: var(--color-text-primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.3s ease;
+  text-transform: none;
+}
+
+.metaRow a:hover {
+  opacity: 0.6;
+}
+
+/* Right Column */
+.rightColumn {
+  flex: 2;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.aboutLabel {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.5rem; /* Reduced */
+}
+
+.nameHeading {
+  font-family: var(--font-sans);
+  font-size: clamp(2.5rem, 5.5vw, 4.5rem); /* Scaled down */
+  font-weight: 400;
+  line-height: 1;
+  margin-bottom: 1rem; /* Reduced */
+  letter-spacing: -0.04em;
+}
+
+.bio {
+  font-size: clamp(0.9rem, 1.2vw, 1.1rem); /* Scaled down */
+  line-height: 1.5;
+  color: var(--color-text-primary);
+  max-width: 800px;
+  margin-bottom: 2rem; /* Reduced */
+}
+
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 1.5rem; /* Reduced gap */
+  border-top: 1px solid var(--color-border-light);
+  padding-top: 1.5rem; /* Reduced padding */
+}
+
+.skillCol {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.skillTitle {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.skillItem {
+  font-size: 0.85rem;
+  color: var(--color-text-primary);
+}
+
+.footerVersion {
+  position: absolute;
+  bottom: 2rem; /* Adjusted for tighter fit */
+  right: 4vw;
+  font-size: 0.7rem;
+  color: var(--color-text-secondary);
+  letter-spacing: 0.1em;
+  z-index: 2;
+}
+
+@media (max-width: 768px) {
+  .mainContent {
+    flex-direction: column;
+  }
+  .leftColumn {
+    max-width: 100%;
+  }
+  .metaRow span:last-child {
+    max-width: 70%;
+  }
+}

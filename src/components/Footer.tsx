@@ -85,8 +85,8 @@ export default function Footer() {
 
           <div className={`${styles.footerCol} ${styles.navCol}`}>
             <Link href="#projects">{splitText("WORK")}</Link>
-            <Link href="#about">{splitText("INFO")}</Link>
-            <Link href="#contact">{splitText("CONTACT")}</Link>
+            <Link href="/info">{splitText("INFO")}</Link>
+            <Link href="/contact">{splitText("CONTACT")}</Link>
           </div>
         </div>
 

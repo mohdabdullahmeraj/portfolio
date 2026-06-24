@@ -105,7 +105,7 @@ export default function About() {
           ))}
           
           <div style={{ flexBasis: "100%", height: 0 }}></div>
-          <Link href="/about" className={`${styles.readMoreLink} ${styles.word}`}>
+          <Link href="/info" className={`${styles.readMoreLink} ${styles.word}`}>
             Read More
           </Link>
         </div>
