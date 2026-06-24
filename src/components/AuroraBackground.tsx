@@ -106,11 +106,11 @@ const fragmentShader = `
     float noise = n1 * 0.5 + n2 * 0.3 + n3 * 0.15 + n4 * 0.05;
     
     // Color palette — deep reds, blacks, subtle blue edges
-    vec3 color1 = vec3(0.75, 0.75, 0.75);  // #c0c0c0ff — vibrant red
-    vec3 color2 = vec3(0.07, 0.18, 0.76);  // #122fc1ff — deep red
-    vec3 color3 = vec3(0.05, 0.02, 0.05);  // near black
-    vec3 color4 = vec3(0.15, 0.05, 0.20);  // dark purple hint
-    vec3 color5 = vec3(0.04, 0.04, 0.12);  // dark blue edge
+    vec3 color1 = vec3(0.20, 0.55, 1.00);  // vibrant electric blue — hotspots and bloom
+    vec3 color2 = vec3(0.03, 0.08, 0.45);  // deep navy — the base flowing layer
+    vec3 color3 = vec3(0.02, 0.02, 0.06);  // near-black with a blue tint
+    vec3 color4 = vec3(0.05, 0.02, 0.18);  // dark indigo for depth pockets
+    vec3 color5 = vec3(0.02, 0.04, 0.20);  // midnight blue edge layer
     
     // Create aurora flow
     float flow1 = smoothstep(-0.2, 0.8, noise + sin(uv.y * 2.0 + time) * 0.3);

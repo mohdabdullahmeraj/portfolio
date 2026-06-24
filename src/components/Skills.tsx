@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
+import TransitionLink from "./TransitionLink";
 import styles from "./Skills.module.css";
 
 const skillsData = [
@@ -55,9 +55,9 @@ export default function Skills() {
           designer, passionate about creating products that blend technology,
           design, and real-world impact.
         </h2>
-        <Link href="/contact" className={styles.contactLink}>
+        <TransitionLink href="/contact" className={styles.contactLink}>
           Contact Me
-        </Link>
+        </TransitionLink>
       </div>
 
       {/* Right Column: Scrolling Accordion */}

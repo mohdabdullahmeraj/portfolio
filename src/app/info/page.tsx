@@ -1,4 +1,4 @@
-import Link from "next/link";
+import TransitionLink from "@/components/TransitionLink";
 import AuroraBackground from "@/components/AuroraBackground";
 import styles from "./Info.module.css";
 
@@ -12,7 +12,7 @@ export default function InfoPage() {
       {/* Header */}
       <header className={styles.header}>
         <h1 className={styles.logoText}>Info</h1>
-        <Link href="/" className={styles.backLink}>BACK</Link>
+        <TransitionLink href="/" className={styles.backLink} isBack={true}>BACK</TransitionLink>
       </header>
 
       {/* Layout */}

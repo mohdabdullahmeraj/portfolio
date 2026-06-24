@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Link from "next/link";
+import TransitionLink from "./TransitionLink";
 import AuroraBackground from "./AuroraBackground";
 import styles from "./Hero.module.css";
 
@@ -274,15 +274,15 @@ export default function Hero() {
             </a>
           </div>
           <div className={styles.footerRight}>
-            <a href="#projects" className={styles.footerLink}>
+            <TransitionLink href="/#projects" className={styles.footerLink}>
               WORK
-            </a>
-            <Link href="/info" className={styles.footerLink}>
+            </TransitionLink>
+            <TransitionLink href="/info" className={styles.footerLink}>
               INFO
-            </Link>
-            <Link href="/contact" className={styles.footerLink}>
+            </TransitionLink>
+            <TransitionLink href="/contact" className={styles.footerLink}>
               CONTACT
-            </Link>
+            </TransitionLink>
           </div>
         </div>
       </div>

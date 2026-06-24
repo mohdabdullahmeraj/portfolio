@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Link from "next/link";
+import TransitionLink from "./TransitionLink";
 import styles from "./Footer.module.css";
 
 export default function Footer() {
@@ -84,9 +84,9 @@ export default function Footer() {
           </div>
 
           <div className={`${styles.footerCol} ${styles.navCol}`}>
-            <Link href="#projects">{splitText("WORK")}</Link>
-            <Link href="/info">{splitText("INFO")}</Link>
-            <Link href="/contact">{splitText("CONTACT")}</Link>
+            <TransitionLink href="/#projects">{splitText("WORK")}</TransitionLink>
+            <TransitionLink href="/info">{splitText("INFO")}</TransitionLink>
+            <TransitionLink href="/contact">{splitText("CONTACT")}</TransitionLink>
           </div>
         </div>
 

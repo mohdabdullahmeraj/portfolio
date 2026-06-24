@@ -40,6 +40,7 @@ export default function RootLayout({
       className={`${inter.variable} ${playfair.variable} antialiased`}
     >
       <body>
+        <div id="page-transition-overlay" className="page-transition-overlay"></div>
         <LenisProvider>{children}</LenisProvider>
       </body>
     </html>

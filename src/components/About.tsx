@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Link from "next/link";
+import TransitionLink from "./TransitionLink";
 import styles from "./About.module.css";
 
 export default function About() {
@@ -105,9 +105,9 @@ export default function About() {
           ))}
           
           <div style={{ flexBasis: "100%", height: 0 }}></div>
-          <Link href="/info" className={`${styles.readMoreLink} ${styles.word}`}>
+          <TransitionLink href="/info" className={`${styles.readMoreLink} ${styles.word}`}>
             Read More
-          </Link>
+          </TransitionLink>
         </div>
       </div>
     </section>

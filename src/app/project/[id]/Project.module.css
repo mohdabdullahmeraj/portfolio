@@ -1,0 +1,219 @@
+.projectWrapper {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--color-bg); /* Solid black */
+  width: 100%;
+  color: var(--color-text-primary);
+  z-index: 1;
+  padding: 2rem 4vw;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-bottom: 3rem;
+  z-index: 2;
+}
+
+.backLink {
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.backLink:hover {
+  opacity: 0.6;
+}
+
+/* Layout */
+.mainContent {
+  display: flex;
+  gap: 4vw;
+  flex: 1;
+  z-index: 2;
+  overflow: hidden;
+}
+
+/* Left Column */
+.leftColumn {
+  flex: 1;
+  display: flex;
+  gap: 2rem;
+  overflow-y: auto;
+  padding-right: 1rem;
+}
+
+/* Custom minimal scrollbar for left column if content overflows */
+.leftColumn::-webkit-scrollbar {
+  width: 4px;
+}
+.leftColumn::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.textContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.titleWrap {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.title {
+  font-family: var(--font-sans);
+  font-size: clamp(2.5rem, 4.5vw, 5rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.year {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.paragraph {
+  font-size: clamp(0.9rem, 1.1vw, 1.05rem);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  max-width: 600px;
+}
+
+.badgesRow {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.badge {
+  padding: 0.4rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  font-size: 0.65rem;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.linksRow {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.linkBtn {
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: var(--color-text-primary);
+  color: var(--color-bg);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.linkBtn:hover {
+  opacity: 0.8;
+  transform: translateY(-1px);
+}
+
+.thumbnailColumn {
+  width: 140px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+.thumbnail {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  background: #111;
+}
+
+/* Right Column */
+.rightColumn {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mainImageWrapper {
+  position: relative;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.mainImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 900px) {
+  .projectWrapper {
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
+  }
+  .mainContent {
+    flex-direction: column;
+  }
+  .leftColumn {
+    flex-direction: column;
+    padding-right: 0;
+  }
+  .thumbnailColumn {
+    width: 100%;
+    flex-direction: row;
+    overflow-x: auto;
+  }
+  .thumbnail {
+    width: 120px;
+    flex-shrink: 0;
+  }
+  .rightColumn {
+    min-height: 400px;
+  }
+}

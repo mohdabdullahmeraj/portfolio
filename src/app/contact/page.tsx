@@ -1,4 +1,4 @@
-import Link from "next/link";
+import TransitionLink from "@/components/TransitionLink";
 import AuroraBackground from "@/components/AuroraBackground";
 import styles from "./Contact.module.css";
 
@@ -10,7 +10,7 @@ export default function ContactPage() {
       {/* Header */}
       <header className={styles.header}>
         <h1 className={styles.logoText}>Contact</h1>
-        <Link href="/" className={styles.backLink}>BACK</Link>
+        <TransitionLink href="/" className={styles.backLink} isBack={true}>BACK</TransitionLink>
       </header>
 
       {/* Layout */}
@@ -57,7 +57,7 @@ export default function ContactPage() {
               <a href="https://www.linkedin.com/in/mohdabdullahmeraj/" target="_blank" rel="noopener noreferrer" className={styles.gridItem}>LinkedIn</a>
               <a href="https://github.com/mohdabdullahmeraj/" target="_blank" rel="noopener noreferrer" className={styles.gridItem}>GitHub</a>
               <a href="https://drive.google.com/file/d/1F5Nr0u0QNyjCliCT-LqYpk7CGGFSBpGA/view?usp=sharing" target="_blank" rel="noopener noreferrer" className={styles.gridItem}>Resume</a>
-              <a href="https://www.behance.net/gallery/234016403/Portfolio" target="_blank" rel="noopener noreferrer" className={styles.gridItem}>Behance</a>
+              <a href="https://www.behance.net/gallery/234016403/Portfolio" target="_blank" rel="noopener noreferrer" className={styles.gridItem}>Design Portfolio</a>
             </div>
 
             <div className={styles.gridCol}>

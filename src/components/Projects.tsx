@@ -3,48 +3,9 @@
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Link from "next/link";
+import TransitionLink from "./TransitionLink";
+import { projects } from "@/data/projects";
 import styles from "./Projects.module.css";
-
-// Easy-to-edit project data
-const projects = [
-  {
-    id: "tracix",
-    title: "Tracix",
-    label: "AI Engineering Project",
-    image: "/image.png",
-  },
-  {
-    id: "moms-verdict",
-    title: "Moms Verdict",
-    label: "AI Engineering Project",
-    image: "/image.png",
-  },
-  {
-    id: "carbon-drivient",
-    title: "Carbon Drivient",
-    label: "Full Stack Project",
-    image: "/image.png",
-  },
-  {
-    id: "popin",
-    title: "Popin",
-    label: "Internship Project",
-    image: "/image.png",
-  },
-  {
-    id: "under-25",
-    title: "Under 25 App Redesign",
-    label: "Design Project",
-    image: "/image.png",
-  },
-  {
-    id: "xpulse",
-    title: "XPulse: Gaming Community Hub",
-    label: "Design Project",
-    image: "/image.png",
-  },
-];
 
 export default function Projects() {
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -74,7 +35,7 @@ export default function Projects() {
       {/* LEFT COLUMN: Scrolling List */}
       <div className={styles.leftColumn}>
         {projects.map((project, index) => (
-          <Link
+          <TransitionLink
             href={`/project/${project.id}`}
             key={project.id}
             className={styles.projectItem}
@@ -89,7 +50,7 @@ export default function Projects() {
             >
               {project.title}
             </h3>
-          </Link>
+          </TransitionLink>
         ))}
       </div>
 
@@ -97,7 +58,7 @@ export default function Projects() {
       <div className={styles.rightColumn}>
         <div className={styles.galleryContainer}>
           {projects.map((project, index) => (
-            <Link href={`/project/${project.id}`} key={project.id}>
+            <TransitionLink href={`/project/${project.id}`} key={project.id}>
               <div
                 className={`${styles.galleryItem} ${
                   index === activeIndex ? styles.active : ""
@@ -110,13 +71,13 @@ export default function Projects() {
                 <div className={styles.imageWrapper}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src={project.image}
+                    src={project.mainImage}
                     alt={project.title}
                     className={styles.projectImage}
                   />
                 </div>
               </div>
-            </Link>
+            </TransitionLink>
           ))}
         </div>
       </div>
